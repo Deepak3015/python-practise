@@ -26,3 +26,5 @@ print("Total Sale:", total_sales)
 print("Average Sales:", average_sales)
 print("High sale:", high_sales["day"], high_sales["Amount"])
 print("Low sale:", low_sales["day"], low_sales["Amount"])
+
+
