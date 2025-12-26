@@ -35,3 +35,4 @@ print("Average Sales:", avg)
 print("Highest Sale:", high["day"], "-", high["amount"])
 print("Lowest Sale:", low["day"], "-", low["amount"])
 
+    
