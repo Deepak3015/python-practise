@@ -48,6 +48,3 @@ def generate_report(clean_data):
 
 
 
-
-
-
