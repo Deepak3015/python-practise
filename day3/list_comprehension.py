@@ -144,3 +144,5 @@ masked_email = mail[0]+"*"*(len(mail)-2)+mail[-1]+"@"+domain
 
 print(masked_email)
 print(len(mail)-2)
+
+
