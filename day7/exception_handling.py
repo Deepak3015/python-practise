@@ -28,16 +28,27 @@ student_details = {
     3: ["Science"]
 }
 
-result_config = configparser.ConfigParser()
-
 for student_id,books in student_details.items():
     total_cost = 0
     for book in books:
         total_cost += int(book_config["BOOKS"][book])
-    result_config[f"Student_{student_id}"] = {"total_Cost":total_cost}
+    if len(books) >= 2:
+        discount = total_cost * 0.10
+    else:
+        discount = 0
+
+    final_cost = total_cost - discount
+
+    # Save result in SAME ini file
+    book_config[f"Student_{student_id}"] = {
+        "books_bought": str(len(books)),
+        "total_cost": str(total_cost),
+        "discount": str(int(discount)),
+        "final_cost": str(int(final_cost))
+    }
     
  
 with open("/home/depliii/Desktop/GitHub/python-practise/day7/book_price.ini" ,"w") as  file:
-    result_config.write(file)
+    book_config.write(file)
 
 print("Student book cost calculated successfully.")
