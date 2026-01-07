@@ -1,15 +1,18 @@
-from day9.home_price_calculator.src.main.models.labour import Labour 
-
-
- 
-
+from src.main.models.labour import Labour
 
 class Mistri(Labour):
-    def__init__(self,fisrt_name,last_name,wage,role,skill.crud):
-        super().init(first_name,last_name,wage,role,crud)
-        self.wage = wage
-        self.role = role
+    def __init__(self, first_name, last_name, wage, role, skill, crud):
+        super().__init__(first_name, last_name, wage, role, crud)
+        self.skill = skill
+        self.__save_to_skill_table()
+
+    def __save_to_skill_table(self):
+        insert_query = f""" INSERT INTO skills (labour_id, skill)
+                VALUES ({self.id}, '{self.skill}') """
+        
+        self.crud.insert_into_mysql(insert_query)
+
     def to_dict(self):
         data = super().to_dict()
-        data.update({"wage":self.wage,"role":self.role})
+        data.update({"skill": self.skill})
         return data
