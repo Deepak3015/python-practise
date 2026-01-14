@@ -1,0 +1,5 @@
+pycryptodome
+pycryptodomex
+fastapi
+uvicorn
+loguru
