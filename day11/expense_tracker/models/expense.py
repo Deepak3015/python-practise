@@ -39,9 +39,30 @@ class Expense:
         return{
             "id":self.expense_id,
             "date" : self.date,
-            
-        }
-
+            "category":self.category,
+            "amount":self.amount,
+            "note":self.note}
+    
+    @classmethod
+    def from_dict(cls,data:dict):
+        """
+        Create Expense object from dictionary
+        """
+        return cls(
+            expense_id = int(data["id"]),
+            date = data["date"],
+            category = data["category"],
+            amount = data["amount"],
+            note = data.get("note",""))
+    
+    def __repr__(self):
+            return (
+            f"Expense(id={self.expense_id}, "
+            f"date='{self.date}', "
+            f"category='{self.category}', "
+            f"amount={self.amount}, "
+            f"note='{self.note}')"
+        )
 
 
 
