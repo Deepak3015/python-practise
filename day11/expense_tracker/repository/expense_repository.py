@@ -15,10 +15,7 @@ class ExpenseRepository:
 
         if not os.path.exists(self.file_path):
             with open(self.file_path, mode="w", newline="") as file:
-                writer = csv.DictWriter(
-                    file,
-                    fieldnames=["id", "date", "category", "amount", "note"]
-                )
+                writer = csv.DictWriter(file,fieldnames=["id", "date", "category", "amount", "note"])
                 writer.writeheader()
 
 
@@ -37,11 +34,9 @@ class ExpenseRepository:
     def save_all(self, expenses: list[Expense]):
 
         with open(self.file_path, mode="w", newline="") as file:
-            writer = csv.DictWriter(
-                file,
-                fieldnames=["id", "date", "category", "amount", "note"]
-            )
+            writer = csv.DictWriter(file,fieldnames=["id", "date", "category", "amount", "note"])
             writer.writeheader()
 
             for expense in expenses:
                 writer.writerow(expense.to_dict())
+                
