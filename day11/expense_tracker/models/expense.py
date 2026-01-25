@@ -12,9 +12,7 @@ class Expense:
 
     def _validate_date(self,date_str:str) -> str:
         try: 
-            """
-            Validates date format: YYYY-MM-DD
-            """ 
+
             datetime.strptime(date_str, "%Y-%m-%d")
             return date_str
         
@@ -32,10 +30,7 @@ class Expense:
         return round(float(amount_int),2)
     
     def to_dict(self) -> dict:
-        """
-        Convert Expense object to dictionary
-        (used for CSV / JSON / API)
-        """
+
         return{
             "id":self.expense_id,
             "date" : self.date,
@@ -45,9 +40,7 @@ class Expense:
     
     @classmethod
     def from_dict(cls,data:dict):
-        """
-        Create Expense object from dictionary
-        """
+
         return cls(
             expense_id = int(data["id"]),
             date = data["date"],
